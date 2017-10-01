@@ -30,7 +30,7 @@ source_tonmcg <- "https://github.com/tonmcg/"
 #inputs
 #############################
 intput_data <- "/Users/daveism/GitHub/stats-560-project-1/data/source"
-shapefiles <- "/Users/daveism/GitHub/stats-560-project-1/data/shapefiles/"
+shapefiles <- "/Users/daveism/GitHub/stats-560-project-1/data/shapefiles"
 
 #############################
 #outputs
