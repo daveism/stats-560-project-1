@@ -118,7 +118,7 @@ ggScatterDigfac2 <-  function(data, xField, yField, xlabel, ylabel, title, facet
   geom_point(color="#b2ddf2") +
   geom_smooth(method = 'lm',color="#008fd5",se=0) +
   ggtitle(title) +theme_minimal(base_size=9) + coord_cartesian(ylim = c(0, 200)) +
-  labs(title= paste(title,"Events by Year 1950-2017"),
+  labs(title= paste(title),
         subtitle="",
         x=xlabel,
         y=ylabel,
