@@ -113,15 +113,15 @@ ggYearFac <- function(data, dataname, years, facet_name, source){
   facet_wrap(reformulate(facet_name), ncol = 5)
 }
 
-ggScatter538fac2 <-  function(data, xField, yField, title, facet_name, source){
+ggScatterDigfac2 <-  function(data, xField, yField, xlabel, ylabel, title, facet_name, source){
   ggplot(data, aes(x = xField, y = yField)) +
   geom_point(color="#b2ddf2") +
   geom_smooth(method = 'lm',color="#008fd5",se=0) +
   ggtitle(title) +theme_minimal(base_size=9) + coord_cartesian(ylim = c(0, 200)) +
   labs(title= paste(title,"Events by Year 1950-2017"),
         subtitle="",
-        x="Year",
-        y="Number of events",
+        x=xlabel,
+        y=ylabel,
         caption=paste("Source:",source)) +
         theme(plot.subtitle = element_text(color="#666666"),
                  plot.caption = element_text(color="#AAAAAA", size=6))+
