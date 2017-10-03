@@ -78,6 +78,21 @@ timing_gop_chart <- ggScatter(yale_election_merge,
 ggsave(paste(output_charts,"timing_gop_chart.png"), timing_gop_chart, width=4, height=3)
 cor(yale_election_merge$timing,yale_election_merge$per_gop,use = "complete.obs")
 
+#timing gop smaller test
+timing_gop_chart <- ggScatterSm(yale_election_merge,
+              yale_election_merge$timing,
+              yale_election_merge$per_gop,
+              "lm",
+              "Harm others and GOP",
+              "precent harm others",
+              "percent GOP",
+              0,
+              100,
+              paste(source_yale, source_tonmcg,sep = " and "))
+
+ggsave(paste(output_charts,"timing_gop_chart3.png"), timing_gop_chart, width=3, height=2)
+cor(yale_election_merge$timing,yale_election_merge$per_gop,use = "complete.obs")
+
 #timing dem
 timing_dem_chart <- ggScatter(yale_election_merge,
               yale_election_merge$timing,

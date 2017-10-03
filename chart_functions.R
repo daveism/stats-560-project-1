@@ -37,6 +37,27 @@ ggScatter <-  function(data, xField, yField, method, title,
           plot.caption = element_text(color="#AAAAAA", size=6))
 }
 
+ggScatterSm <-  function(data, xField, yField, method, title,
+                       xLabel, yLabel, lowerlimit, upperlimit, source){
+
+  m <- lm(yField ~ xField, data);
+  r2 <- format(summary(m)$r.squared, digits = 3)
+  pearsons <- format(cor(xField, yField, use = "complete.obs"), digits = 3)
+
+  ggplot(data, aes(x = xField, y = yField)) +
+  geom_point(color="#b2ddf2") +
+  geom_smooth(method = method,color="#008fd5",se=0) +
+  theme_minimal(base_size=6) +
+  coord_cartesian(ylim = c(lowerlimit, upperlimit)) +
+  labs(title= paste(title),
+     subtitle=paste(paste(paste("R-squared = ",r2),", Pearsons:"),pearsons),
+     x=xLabel,
+     y=yLabel,
+     caption=paste("Source:",source)) +
+     theme(plot.subtitle = element_text(color="#666666"),
+          plot.caption = element_text(color="#AAAAAA", size=5))
+}
+
 
 ggScatterPt <-  function(data, xField, yField, method, title,
                        xLabel, yLabel, lowerlimit, upperlimit, pt_name,
