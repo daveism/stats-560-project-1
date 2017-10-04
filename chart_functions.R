@@ -37,7 +37,7 @@ ggScatter <-  function(data, xField, yField, method, title,
           plot.caption = element_text(color="#AAAAAA", size=6))
 }
 
-ggScatterSm <-  function(data, xField, yField, method, title,
+ggScatterDoc <-  function(data, xField, yField, method, title,
                        xLabel, yLabel, lowerlimit, upperlimit, source){
 
   m <- lm(yField ~ xField, data);
@@ -45,17 +45,17 @@ ggScatterSm <-  function(data, xField, yField, method, title,
   pearsons <- format(cor(xField, yField, use = "complete.obs"), digits = 3)
 
   ggplot(data, aes(x = xField, y = yField)) +
-  geom_point(color="#b2ddf2") +
-  geom_smooth(method = method,color="#008fd5",se=0) +
-  theme_minimal(base_size=6) +
+  geom_point(colour="#b2ddf2", color="grey", fill = "#b2ddf2", size =.05) +
+  geom_smooth(method = method,color="#008fd5", se=0, size=0.5) +
+  theme_minimal(base_size=3) +
   coord_cartesian(ylim = c(lowerlimit, upperlimit)) +
   labs(title= paste(title),
-     subtitle=paste(paste(paste("R-squared = ",r2),", Pearsons:"),pearsons),
-     x=xLabel,
-     y=yLabel,
-     caption=paste("Source:",source)) +
-     theme(plot.subtitle = element_text(color="#666666"),
-          plot.caption = element_text(color="#AAAAAA", size=5))
+       subtitle=paste(paste(paste("R-squared = ",r2),"\nPearsons:"),pearsons),
+       x=xLabel,
+       y=yLabel,
+       caption=paste("Source:",source)) +
+  theme(plot.subtitle = element_text(color="#666666"),
+        plot.caption = element_text(color="#AAAAAA", size=3))
 }
 
 
